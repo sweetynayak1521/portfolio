@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        background-color: #c7beec;
+      }
+      .navBar {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background-image: linear-gradient(to bottom, #7d549e, #9141c0, #5c2f96);
+        background-color: transparent;
+      }
+      .menu .menu-list {
+        display: flex;
+        list-style-type: none;
+        margin-right: 50px;
+        column-gap: 9%;
+        margin-left: 60px;
+        margin-top: 25px;
+      }
+      .menu .menu-list-item {
+        padding: 0 3rem, 1rem;
+        font-size: large;
+      }
+      .logo {
+        padding: 0 5rem;
+      }
+      .logo .logo-heading {
+        color: #fff;
+      }
+      .menu {
+        padding: 0 5rem;
+      }
+      .divi {
+        display: none;
+        color: #fff;
+        font-size: 25px;
+      }
+      .cross-icon {
+        display: none;
+      }
+      @media screen and (min-width: 856px) and (max-width: 1024px) {
+        .menu-list .menu-list-items {
+          padding: 0.5rem 0.3rem;
+        }
+      }
+
+      .my {
+        background-image: url("./images/designImage.webp");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        margin: 4.1rem 0;
+      }
+      .heading {
+        color: rgb(39, 8, 59);
+      }
+      .my .intro {
+        text-align: center;
+        margin: 0 0.4rem;
+      }
+      .my .button {
+        margin: 2rem 0;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: #7d549e;
+      }
+      .my-heading {
+        text-align: center;
+      }
+      .portfolio {
+        margin: 4.8rem 0;
+        padding: 0 5rem;
+      }
+
+      .my-card {
+        display: flex;
+        height: 300px;
+        width: 300px;
+      }
+      .myrow .mycol {
+        text-align: center;
+        width: 30%;
+      }
+      .myrow {
+        display: flex;
+
+        justify-content: space-between;
+        margin: 2rem 0;
+        column-gap: 50px;
+      }
+      .my-card {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        background-image: linear-gradient(#74d7bb, #53c8b6, #35a99c);
+        padding: 1rem;
+        column-gap: 20%;
+      }
+      .port-card {
+        padding: 0 !important;
+        background: none !important;
+        border: 2px solid #47135f;
+      }
+
+      .port-card .myimg {
+        width: 300px;
+        height: 500px;
+      }
+
+      .port-card .myimg img {
+        height: 200px;
+        width: 300px;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border: 1px solid black;
+      }
+      .heading {
+        font-size: 1.3rem;
+        font-weight: lighter;
+        margin: auto;
+        letter-spacing: 1px;
+
+        display: static;
+        width: 100%;
+      }
+      .great-heading {
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(15, 58, 58);
+        font-size: xx-large;
+        text-decoration: underline;
+      }
+      .button {
+        filter: drop-shadow(10px 1px 2px rgb(49, 41, 41));
+      }
+      .my_heading_about {
+        text-align: center;
+        background-color: #afa2cc;
+        color: rgb(39, 8, 59);
+        font-size: xx-large;
+        text-decoration: underline;
+      }
+      .about {
+        display: flex;
+        align-items: center;
+
+        justify-content: space-between;
+        width: 100%;
+      }
+      .about .about-text {
+        width: 450px;
+        color: #fff;
+        padding: 5rem 1rem 5rem 5rem;
+      }
+      .about {
+        display: flex;
+        align-items: center;
+
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .my_heading {
+        width: max-content;
+      }
+      .about .about_text {
+        width: 450px;
+        color: rgb(15, 58, 58);
+        padding: 1rem 1rem 2rem 5rem;
+      }
+
+      .about .about-image img {
+        height: 450px;
+        width: 450px;
+        padding: 2rem 3rem 3rem 1rem;
+        border-radius: 50%;
+      }
+      .contact {
+        padding: 0 5rem;
+      }
+
+      .contact-content {
+        display: flex;
+        margin: 3rem 0;
+        justify-content: space-between;
+      }
+
+      .contact-form-container {
+        width: 50%;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contact-form .form-controls {
+        width: 80%;
+        padding: 10px 0;
+        margin: 1.67rem 0;
+      }
+
+      .contact-form .form-btn {
+        width: 83%;
+      }
+
+      .contact-details {
+        width: 50%;
+      }
+      .footer {
+        background-color: rgb(56, 25, 56);
+        color: #fff;
+        padding: 2rem;
+      }
+
+      .footer-list-items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        margin: 1rem 1rem 0 1rem;
+        border-radius: 50%;
+        background-color: #53c8b6;
+      }
+
+      .footer-links {
+        font-size: 24px;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .social-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .footer-menu {
+        padding: 0 5rem;
+      }
+
+      .footer-menu .footer-menu-list {
+        display: flex;
+        list-style: none;
+        column-gap: 50%;
+        margin-left: 200px;
+      }
+      .link {
+        border-bottom: 2px solid transparent;
+        transition: all 0.25s;
+        padding: 3px;
+        text-decoration: none;
+        color: #fff;
+        filter: drop-shadow(0.5px 0.5px 0.5px);
+      }
+      .btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        letter-spacing: 1px;
+        border: none;
+      }
+
+      .common-btn {
+        background-color: #5e35a9;
+        color: #fff;
+        border: 2px solid #5e35a9;
+        transition: all 0.25s;
+      }
+
+      .common-btn:hover {
+        background-color: #fff;
+        color: #5e35a9;
+        border: 2px solid #5e35a9;
+        outline: none;
+      }
+
+      .ghost-btn {
+        background-color: #fff;
+        color: #5e35a9;
+        border: 2px solid #5e35a9;
+        outline: none;
+      }
+
+      .ghost-btn:hover {
+        background-color: #5e35a9;
+        color: #fff;
+        transition: all 0.25s;
+        border: 2px solid #5e35a9;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navBar">
+        <div class="logo">
+          <h2 class="logoheading">Kumkum Nayak</h2>
+        </div>
+        <div class="divi" id="divi">
+          <i></i>
+          <i></i>
+        </div>
+        <div class="menu">
+          <ul class="menu-list">
+            <li class="menu-list-item">
+              <a class="link" href="#Home">Home</a>
+            </li>
+            <li class="menu-list-item">
+              <a class="link" href="#Portfolio">Portfolio</a>
+            </li>
+            <li class="menu-list-item">
+              <a class="link" href="#About">About </a>
+            </li>
+            <li class="menu-list-item">
+              <a class="link" href="#Certifications">Certifications</a>
+            </li>
+            <li class="menu-list-item">
+              <a class="link" href="#Contact">Contact </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section class="my" id="Home">
+      <div class="intro">
+        <div class="heading">
+          <h3 class="first">Hello, I am</h3>
+          <h1 class="second">Kumkum Nayak</h1>
+          <h4 class="third">
+            A trainee with 6 months of <br />
+            experience.
+          </h4>
+        </div>
+
+        <button class="button" type="button" id="btnID">
+          <a
+            href="./images/Kumkum-Nayak Resume.pdf"
+            download="KUMKUM NAYAK"
+            style="
+              text-decoration: none;
+              color: black;
+              height: 50px;
+              width: 30px;
+            "
+            >Get Resume</a
+          >
+        </button>
+      </div>
+    </section>
+    <section class="portfolio" id="Portfolio">
+      <div class="heading">
+        <h1 class="my-heading"><u>Skills Portfolio</u></h1>
+
+        <div class="portfolio-content">
+          <div class="myrow">
+            <div class="mycol">
+              <div class="my-card port-card">
+                <div class="myimg">
+                  <img src="./images/C++.png" alt="C++ Image" />
+                </div>
+                <h3 class="great-heading">C++ Language</h3>
+              </div>
+            </div>
+
+            <div class="mycol">
+              <div class="my-card port-card">
+                <div class="myimg">
+                  <img src="./images/html.jpg" alt="HTML image" />
+                </div>
+                <h3 class="great-heading">HTML</h3>
+              </div>
+            </div>
+
+            <div class="mycol">
+              <div class="my-card port-card">
+                <div class="myimg">
+                  <img src="./images/css.png" alt="CSS image" />
+                </div>
+                <h3 class="great-heading">CSS</h3>
+              </div>
+            </div>
+          </div>
+          <div class="myrow">
+            <div class="mycol">
+              <div class="my-card port-card">
+                <div class="myimg">
+                  <img src="./images/js.png" alt="JavaScript Image" />
+                </div>
+                <h3 class="great-heading">JavaScript</h3>
+              </div>
+            </div>
+
+            <div class="mycol">
+              <div class="my-card port-card">
+                <div class="myimg">
+                  <img src="./images/pyth.jpg" alt="PythonImage" />
+                </div>
+                <h3 class="great-heading">Python</h3>
+              </div>
+            </div>
+
+            <div class="mycol">
+              <div class="my-card port-card">
+                <div class="myimg">
+                  <img src="./images/dj.jpg" alt="DJango Image" />
+                </div>
+                <h3 class="great-heading">DJango</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="About" class="about">
+      <div class="about_text">
+        <h1 style="font-size: xx-large; color: rgb(39, 8, 59)">
+          <u> About</u>
+        </h1>
+
+        <h2 class="para">Hi, I'm Kumkum Nayak!</h2>
+        <h4>Fullstack Developer</h4>
+        <p class="lead_para">
+          I'm Kumkum Nayak,a Fullstack developer <br />
+          with the goal of advancing my career and <br />
+          participating in inspiring projects.
+        </p>
+        <p>
+          Here I present my work and my passion for <br />
+          web development.Let's shape digital solutions <br />
+          together and shape the future!
+        </p>
+      </div>
+      <div class="about-image"><img src="./images/photo.jpeg" alt="" /></div>
+    </section>
+    <section class="certificate" id="Certifications">
+      <div
+        style="
+          font-size: x-large;
+          color: rgb(39, 8, 59);
+          text-align: center;
+          margin: auto;
+        "
+      >
+        <h1><u>Certifications</u></h1>
+      </div>
+      <div
+        style="
+          display: flex;
+          column-gap: 30%;
+          background-color: #8f6bbe;
+          border: 1px solid black;
+        "
+      >
+        <div class="certify">
+          <h3>Programming in C++</h3>
+          <p>IIT Bombay</p>
+          <p>2023-04-21</p>
+        </div>
+        <div class="certify">
+          <h3>JAVASCRIPT</h3>
+          <p>Infosys</p>
+          <p>2023-09-24</p>
+        </div>
+
+        <div class="certify">
+          <h3>Programming in C++</h3>
+          <p>Infosys</p>
+          <p>2023-09-24</p>
+        </div>
+      </div>
+      <br />
+      <br />
+
+      <div
+        style="
+          margin: auto;
+          text-align: center;
+          background-color: #8f6bbe;
+          height: 120px;
+          border: 1px solid black;
+        "
+      >
+        <h3>The joy of computing using Python</h3>
+        <p>IIT Madras</p>
+        <p>July 2023</p>
+      </div>
+
+      <br />
+      <br />
+      <div
+        style="
+          display: flex;
+          column-gap: 30%;
+          background-color: #8f6bbe;
+          border: 1px solid black;
+        "
+      >
+        <div class="certify">
+          <h3>HTML-5-The Language</h3>
+          <p>Infosys</p>
+          <p>2023-09-24</p>
+        </div>
+        <div class="certify">
+          <h3>Basics of Python</h3>
+          <p>Infosys</p>
+          <p>2023-09-24</p>
+        </div>
+        <div class="certify">
+          <h3>Java Programming</h3>
+          <p>IIT Bombay</p>
+          <p>2023-10-30</p>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="Contact">
+      <div class="contact-heading">
+        <h1
+          style="font-size: xx-large; color: rgb(39, 8, 59); text-align: center"
+        >
+          <u>Contact Me</u>
+        </h1>
+      </div>
+      <div class="contact-content">
+        <div class="contact-form-container">
+          <h1 class="great-heading"><u>Get In Touch</u></h1>
+          <form class="contact-form">
+            <input class="form-controls" type="text" placeholder="Your Name" />
+            <input class="form-controls" type="text" placeholder="Your Email" />
+            <input class="form-controls" type="text" placeholder="Your Phone" />
+            <textarea
+              class="form-controls"
+              placeholder="Write your message"
+              name="message"
+              id=""
+              cols="30"
+              rows="10"
+            >
+            </textarea>
+            <input
+              class="form-btn btn common-btn"
+              type="submit"
+              value="Send Message"
+            />
+          </form>
+        </div>
+        <div class="contact-details">
+          <h1 class="great-heading"><u>My Contact Details</u></h1>
+          <div class="details">
+            <h5 class="contact-heading"><u>EMAIL</u></h5>
+            <p class="contact-text">sweetynayak1521@gmail.com</p>
+          </div>
+          <br /><br />
+          <div class="details">
+            <h5 class="contact-heading"><u>PHONE</u></h5>
+            <p class="contact-text">+91 6232881156</p>
+          </div>
+          <br /><br />
+          <div class="details">
+            <h5 class="contact-heading"><u>ADDRESS</u></h5>
+            <p class="contact-text">Century Cement Baikunth,</p>
+            <p>Staff Colony CD-65,Block no.-5</p>
+            <p>Pin Code-493116</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-content text-center">
+        <h4 style="text-align: center">
+          Copyright © 2024 All right reserved | This portfolio website is
+          created by Kumkum Nayak.
+        </h4>
+        <div class="footer-menu">
+          <ul class="footer-menu-list">
+            <li class="footer-list-items">
+              <a class="footer-links" href="https://www.instagram.com/">
+                <i class="instagram">Instagram</i>
+              </a>
+            </li>
+            <li class="footer-list-items">
+              <a
+                class="footer-links"
+                href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+              >
+                <i class="linkedin">LinkedIn</i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
